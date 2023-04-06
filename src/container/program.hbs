@@ -1,0 +1,86 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+        
+    {{#with program.excursion}}
+    <main>
+
+        <section>
+
+            <h3>{{> inf title='Name' info=name}}</h3>
+            <br>
+            <hr>
+            {{> inf title='location' bold=true}}
+            <ul>
+            {{#with location}}
+                {{> inf title='city' info=city}}
+                {{> inf title='country' info=country}}
+            {{/with}}
+            </ul>
+            {{> inf title='date' info=date}}
+            <hr>
+            <br>
+            {{> inf title='program'}}
+            <ul>
+                {{#each program}}
+                    <li>
+                        {{> inf title='name' info=name}}
+                        {{> inf title='type' info=type}}
+                        {{> inf title='duration' info=duration}}
+                        {{> inf title='details'}}
+                        {{#with details}}
+                            <ul>
+                                {{#with museum}}
+                                    {{> inf title='name' info=name}}
+                                    {{> inf title='location'}}
+                                    {{#with location}}
+                                        <ul>
+                                            {{> inf title='address' info=address}}
+                                            {{> inf title='city' info=city}}
+                                            {{> inf title='country' info=country}}
+                                        </ul>
+                                    {{/with}}
+                                    {{> inf title='exhibits'}}
+                                    <ul>
+                                        {{#each exhibits}}
+                                            <li>
+                                                {{> inf title='name' info=name}}
+                                                {{> inf title='artist' info=artist}}
+                                                {{> inf title='description' info=description p=true}}
+                                                {{> inf title='audio_guide' info=audio_guide}}
+                                                <hr>
+                                                <br>                        
+                                            </li>
+                                        {{/each}}
+                                    </ul>
+                                {{/with}}
+                                {{> inf title='guide'}}
+                                {{#with guide}}
+                                    <ul>
+                                        {{> inf title='name' info=name}}
+                                        {{> inf title='language' info=citlanguagey}}
+                                        {{> inf title='rating' info=rating}}
+                                    </ul>
+                                {{/with}}
+                            </ul>
+                        {{/with}}
+                        <br>
+                        <hr>
+                    </li>
+                {{/each}}
+            </ul>
+        </section>
+
+    </main>
+    {{/with}}
+
+
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
