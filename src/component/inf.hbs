@@ -1,0 +1,10 @@
+<div>
+    <em style="text-transform: capitalize; {{#if bold}} font-size:20px; font-weight:bold; {{/if}}">
+    {{title}}:
+    </em>
+    {{#unless p}}
+        {{info}} 
+    {{else}}
+        <p>- {{info}}</p>
+    {{/unless}}
+</div>

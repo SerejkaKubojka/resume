@@ -1,0 +1,139 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+        
+{{#with person}}
+    <main>
+
+        <section>
+            {{> inf title='Name' info=name}}
+            {{> inf title='Age' info=age}}
+            {{> inf title='Gender' info=gender}}
+            
+            <br>
+            {{> inf title='address' bold=true}}
+            {{#with address}}
+
+                {{> inf title='Country' info=country}}
+                {{> inf title='state' info=state}}
+                {{> inf title='city' info=city}}
+                {{> inf title='street' info=street}}
+                {{> inf title='zip' info=zip}}
+
+            {{/with}}
+            <br>
+            {{> inf title='workExperience' bold=true}}
+            <ul>
+                {{#each workExperience}}
+                    <li>
+                        {{> inf title='company' info=company}}
+                        {{> inf title='title' info=title}}
+                        {{> inf title='startDate' info=startDate}}
+                        {{> inf title='endDate' info=endDate}}
+                        {{> inf title='responsibilities'}}
+                        <ul>
+                            {{#each responsibilities}}
+                                <li>
+                                    {{this}}                        
+                                </li>
+                            {{/each}}
+                        </ul>
+                        {{> inf title='year_founded' info=year_founded}}
+                        {{> inf title='industry' info=industry}}
+                        {{> inf title='employees'}}
+                        <ul>
+                            {{#each employees}}
+                                <li>
+                                    {{> inf title='name' info=name}}
+                                    {{> inf title='position' info=position}}
+                                    {{> inf title='department' info=department}}
+                                    {{> inf title='projects'}}
+                                     <ul>
+                                        {{#each projects}}
+                                            <li>
+                                                {{> inf title='name' info=name}}
+                                                {{> inf title='description' info=description p=true}}
+                                                {{> inf title='status' info=status}}
+                                                {{> inf title='teams'}}
+                                                <ul>
+                                                    {{#each teams}}
+                                                        <li>
+                                                            {{> inf title='team_name' info=team_name}}
+                                                            {{> inf title='team_leader'}}
+                                                            {{#with team_leader}}
+                                                                {{> inf title='name' info=name}}
+                                                                {{> inf title='title' info=title}}
+                                                                {{> inf title='email' info=email}}
+                                                            {{/with}}
+                                                            {{> inf title='team_members'}} 
+                                                            <ul>
+                                                                {{#each team_members}}
+                                                                    <li>
+                                                                        {{> inf title='name' info=name}}
+                                                                        {{> inf title='title' info=title}}
+                                                                        {{> inf title='email' info=email}}
+                                                                        {{> inf title='skills'}}
+                                                                        <ul>
+                                                                            {{#each skills}}
+                                                                                <li>
+                                                                                    {{this}}
+                                                                                </li>
+                                                                            {{/each}}
+                                                                        </ul>
+                                                                        {{> inf title='projects'}}
+                                                                        <ul>
+                                                                            {{#each projects}}
+                                                                                <li>
+                                                                                    {{> inf title='name' info=name}}
+                                                                                    {{> inf title='description' info=description p=true}}
+                                                                                    {{> inf title='technologies'}}
+                                                                                    <ul>
+                                                                                        {{#each technologies}}
+                                                                                            <li>
+                                                                                                {{this}}
+                                                                                            </li>
+                                                                                        {{/each}}
+                                                                                    </ul>
+                                                                                    {{> inf title='team_members'}}
+                                                                                    <ul>
+                                                                                        {{#each team_members}}
+                                                                                            <li>
+                                                                                                {{> inf title='name' info=name}}
+                                                                                                {{> inf title='title' info=title}}
+                                                                                            </li>
+                                                                                        {{/each}}
+                                                                                    </ul>
+                                                                                </li>
+                                                                            {{/each}}
+                                                                        </ul>                        
+                                                                    </li>
+                                                                {{/each}}
+                                                            </ul>                       
+                                                        </li>
+                                                    {{/each}}
+                                                </ul>                         
+                                            </li>
+                                        {{/each}}
+                                    </ul>                       
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                    <hr>
+                {{/each}}
+            </ul>
+            <br>
+        </section>
+
+    </main>
+{{/with}}
+
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
