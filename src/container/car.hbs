@@ -1,0 +1,266 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+        
+
+    <main>
+
+        <section>
+            <h1>
+                {{make}}
+                <span class="badge text-bg-primary"> {{model}}</span>
+            </h1>
+            <span class="badge text-bg-warning">{{year}}</span>
+            <span class="badge text-bg-secondary">{{color}}</span>
+            <br>
+            <br>
+            {{> inf title='features' bold=true h=2}}
+            {{#with features}}
+                <ul>
+                    <hr>
+                    {{> inf title='interior' h=3}}
+                    {{#with interior}}
+                        <ul>
+                        {{> inf title='seats' h=4}}
+                        {{#with seats}}
+                            <ul>
+                                {{> inf title='material' info=material}}
+                                {{> inf title='color' info=color}}
+                                {{#if heated}}
+                                    <span class="badge text-bg-warning">heated</span>
+                                {{else}}
+
+                                {{/if}}
+                                {{#if ventilated}}
+                                    <span class="badge text-bg-success">ventilated</span>
+                                {{else}}
+                                    <span class="badge text-bg-danger">NOT ventilated</span>
+                                {{/if}}
+                            </ul>
+                        {{/with}}
+
+                        <br>
+
+                        {{> inf title='dashboard' h=4}}
+                        {{#with dashboard}}
+                            <ul>
+                                {{> inf title='material' info=material}}
+                                {{> inf title='color' info=color}}
+                                {{> inf title='display'}}
+                                {{#with display}}
+                                <ul>
+                                    {{> inf title='type' info=type}}
+                                    {{> inf title='size' info=size}}
+                                    {{> inf title='resolution' info=resolution}}
+                                    {{#if touchscreen}}
+                                        <span class="badge text-bg-warning">touchscreen</span>
+                                    {{else}}
+
+                                    {{/if}}
+                                </ul>
+                                {{/with}}
+                            </ul>
+                        {{/with}}
+
+                        <br>
+
+                        {{> inf title='audio' h=4}}
+                        {{#with audio}}
+                            <ul>
+                                {{> inf title='system' info=system}}
+                                {{> inf title='speakers' info=speakers}}
+                                {{#if subwoofer}}
+                                    <span class="badge text-bg-success">subwoofer</span>
+                                {{else}}
+                                    <span class="badge text-bg-danger">NOT subwoofer</span>
+                                {{/if}}
+                                {{#if bluetooth}}
+                                    <span class="badge text-bg-success">bluetooth</span>
+                                {{else}}
+                                    <span class="badge text-bg-danger">NOT bluetooth</span>
+                                {{/if}}
+                                {{#if USB}}
+                                    <span class="badge text-bg-success">USB</span>
+                                {{else}}
+                                    <span class="badge text-bg-danger">NOT USB</span>
+                                {{/if}}
+                            </ul>
+                        {{/with}}
+
+                        <br>
+                        
+                        </ul>
+                    {{/with}}
+                    <hr>
+                    <br>
+                    {{!-- 
+                        ----------
+                    --}}
+                    <hr>
+                    {{> inf title='exterior' h=3}}
+                    {{#with exterior}}
+                        <ul>
+                        {{> inf title='wheels' h=4}}
+                        {{#with wheels}}
+                            <ul>
+                                {{> inf title='size' info=size}}
+                                {{> inf title='type' info=type}}
+                                <span class="badge text-bg-secondary">silver</span>
+                            </ul>
+                        {{/with}}
+
+                        <br>
+
+                        {{> inf title='headlights' h=4}}
+                        {{#with headlights}}
+                            <ul>
+                                {{> inf title='type' info=type}}
+                                {{> inf title='brightness' info=brightness}}
+                                {{#if automatic}}
+                                    <span class="badge text-bg-success">automatic</span>
+                                {{else}}
+                                    <span class="badge text-bg-danger">NOT automatic</span>
+                                {{/if}}
+                            </ul>
+                        {{/with}}
+
+                        <br>
+
+                        {{> inf title='sunroof' h=4}}
+                        {{#with sunroof}}
+                            <ul>
+                                {{> inf title='type' info=type}}
+                                {{> inf title='size' info=size}}
+                               {{#if automatic}}
+                                    <span class="badge text-bg-success">automatic</span>
+                                {{else}}
+                                    <span class="badge text-bg-danger">NOT automatic</span>
+                                {{/if}}
+                                
+                            </ul>
+                        {{/with}}
+
+                        <br>
+                        
+                        </ul>
+                    {{/with}}
+                    <hr>
+                    <br>
+                    {{!-- 
+                        ----------
+                    --}}
+                    <hr>
+                    {{> inf title='safety' h=3}}
+                    {{#with safety}}
+                        <ul>
+                        {{> inf title='airbags' h=4}}
+                        {{#with airbags}}
+                            <ul>
+                                {{> inf title='front' info=front}}
+                                {{> inf title='side' info=side}}
+                                {{> inf title='knee' info=knee}}
+                                {{> inf title='rear' info=rear}}
+                                
+                            </ul>
+                        {{/with}}
+
+                        <br>
+
+                        {{> inf title='assistance' h=4}}
+                        {{#with assistance}}
+                            <ul>
+                                {{#if blind_spot_monitoring}}
+                                    <span class="badge text-bg-info">blind_spot_monitoring</span>
+                                {{/if}}
+                                {{#if rear_cross_traffic_alert}}
+                                    <span class="badge text-bg-info">rear_cross_traffic_alert</span>
+                                {{/if}}
+                                {{#if lane_departure_warning}}
+                                    <span class="badge text-bg-info">lane_departure_warning</span>
+                                {{/if}}
+                                {{#if adaptive_cruise_control}}
+                                    <span class="badge text-bg-info">adaptive_cruise_control</span>
+                                {{/if}}
+                                {{#if collision_warning}}
+                                    <span class="badge text-bg-info">collision_warning</span>
+                                {{/if}}
+                            </ul>
+                        {{/with}}
+
+                        <br>
+                        
+                        </ul>
+                    {{/with}}
+                    <hr>
+                    <br>
+                    {{!-- 
+                        ----------
+                    --}}
+                </ul>
+            {{/with}}
+
+            {{> inf title='engine' bold=true h=2}}
+            {{#with engine}}
+                <ul>
+                    {{> inf title='type' info=type}}
+                    {{> inf title='displacement' info=displacement}}
+                    {{> inf title='horsepower' info=horsepower}}
+                    {{> inf title='torque' info=torque}}
+
+                    {{> inf title='transmission'}}
+                    {{#with transmission}}
+                    <ul>
+                        {{> inf title='type' info=type}}
+                        {{> inf title='gears' info=gears}}
+                    </ul>
+                    {{/with}}
+                </ul>
+            {{/with}}
+
+            {{> inf title='fuel_economy' bold=true h=2}}
+            {{#with fuel_economy}}
+                <ul>
+                    {{> inf title='city' info=city}}
+                    {{> inf title='highway' info=highway}}
+                    {{> inf title='combined' info=combined}}
+                    
+                </ul>
+            {{/with}}
+
+            {{> inf title='price' bold=true h=2}}
+            {{#with price}}
+                <ul>
+                    {{> inf title='base' info=base  }}
+                    {{> inf title='destination' info=destination}}
+
+                    {{> inf title='options'}}
+                    {{#with options}}
+                    <ul>
+                        {{> inf title='navigation' info=navigation}}
+                        {{> inf title='moonroof' info=moonroof}}
+                        {{> inf title='premium_paint' info=moonroof}}
+                    </ul>
+                    {{/with}}
+                    {{> inf title='total' info=total bold=true}}
+                </ul>
+            {{/with}}
+
+            
+
+
+           
+            
+        </section>
+
+    </main>
+
+
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
