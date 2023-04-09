@@ -1,0 +1,160 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+        
+
+    <main>
+
+        <section>
+            <h1>
+                {{name}}
+                <span class="badge text-bg-primary"> {{price}}$</span>
+            </h1>
+            <span class="badge text-bg-secondary">{{category}}</span>
+            <p>{{description}}</p>
+            
+            <br>
+            <br>
+            {{> inf title='features' bold=true h=2}}
+            {{#with features}}
+                <ul>
+                    <hr>
+                    {{> inf title='processor' h=3}}
+                    {{#with processor}}
+                        <ul>
+                        
+                            {{> inf title='brand' info=brand}}
+                            {{> inf title='model' info=model}}
+                            {{> inf title='speed' info=speed}}
+                            {{> inf title='cores' info=cores}}
+                            {{> inf title='cache' info=cache}}
+
+                        </ul>  
+                    {{/with}}
+                    <hr>
+                    <br>
+                    {{> inf title='memory' h=3}}
+                    {{#with memory}}
+                        <ul>
+                        
+                            {{> inf title='type' info=type}}
+                            {{> inf title='size' info=size}}
+                            {{> inf title='speed' info=speed}}
+
+                        </ul>  
+                    {{/with}}
+                    <hr>
+                    <br>
+                    {{> inf title='storage' h=3}}
+                    {{#with storage}}
+                        <ul>
+                        
+                            {{> inf title='type' info=type}}
+                            {{> inf title='size' info=size}}
+
+                        </ul>  
+                    {{/with}}
+                    <hr>
+                    <br>
+                    {{> inf title='display' h=3}}
+                    {{#with display}}
+                        <ul>
+                        
+                            {{> inf title='size' info=size}}
+                            {{> inf title='resolution' info=resolution}}
+                            {{> inf title='technology' info=technology}}
+                            {{> inf title='color_space' info=color_space}}
+                            {{> inf title='brightness' info=brightness}}
+
+                        </ul>  
+                    {{/with}}
+                    <hr>
+                    <br>
+                    {{> inf title='graphics' h=3}}
+                    {{#with graphics}}
+                        <ul>
+                        
+                            {{> inf title='brand' info=brand}}
+                            {{> inf title='model' info=model}}
+                            {{> inf title='memory' info=memory}}
+
+                        </ul>  
+                    {{/with}}
+                    <hr>
+                    <br>
+                    {{> inf title='ports' h=3}}
+                    <ul>
+                        {{#each ports}}
+                        
+                        <li>
+                            {{> inf title='type' info=type}}
+                            {{> inf title='count' info=count}}
+                            {{#if features}}
+                                {{> inf title='features' badge=features}}
+                            {{/if}}
+                        </li>
+                        <br>
+                         
+                        {{/each}}
+                    </ul> 
+                    <hr>
+                    <br>
+                    {{> inf title='battery' h=3}}
+                    {{#with battery}}
+                        <ul>
+                        
+                            {{> inf title='type' info=type}}
+                            {{> inf title='capacity' info=capacity}}
+                            {{> inf title='life' info=life}}
+
+                        </ul>  
+                    {{/with}}
+                    <hr>
+                    <br>
+                    {{> inf title='weight' h=3 info=weight p=true}}
+                    <hr>
+                    <br>
+                    {{> inf title='dimensions' h=3}}
+                    {{#with dimensions}}
+                        <ul>
+                        
+                            {{> inf title='height' info=height}}
+                            {{> inf title='width' info=width}}
+                            {{> inf title='depth' info=depth}}
+
+                        </ul>  
+                    {{/with}}
+                    <hr>
+                    <br>
+                    {{> inf title='operating_system' h=3 info=operating_system p=true}}
+                    <hr>
+                    <br>
+                    {{#if accessories}}
+                        {{> inf title='accessories' h=3}}
+                        <br>
+                         <div class="row">
+                            {{#each accessories}}
+                            <div class="col-sm-6 mb-3 mb-sm-3">
+                                {{> card title=name price=price}}
+                            </div>
+                            {{/each}}
+                        </div>
+                    {{/if}}
+                    {{!-- 
+                        ----------
+                    --}}
+            {{/with}}
+        </section>
+
+    </main>
+
+
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
