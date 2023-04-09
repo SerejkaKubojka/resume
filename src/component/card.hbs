@@ -1,0 +1,16 @@
+
+        <div class="card" style="width: 18rem;">
+            {{#if img}}
+                <img src="{{img}}" class="card-img-top" alt="{{alt}}">
+            {{/if}}
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{title}}
+                    <span class="badge text-bg-primary"> {{price}}$</span>
+                </h5>
+                {{#if text}}
+                    <p class="card-text">{{text}}</p>
+                {{/if}}
+                <a href="#" class="btn btn-primary">Comming soon</a>
+            </div>
+        </div>
