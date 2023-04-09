@@ -6,7 +6,12 @@
             <div class="card-body">
                 <h5 class="card-title">
                     {{title}}
-                    <span class="badge text-bg-primary"> {{price}}$</span>
+                    {{#if price}}
+                        <span class="badge text-bg-primary"> {{price}}$</span>
+                    {{/if}}
+                    {{#if id}}
+                        <span class="badge text-bg-primary"> {{id}}</span>
+                    {{/if}}
                 </h5>
                 {{#if text}}
                     <p class="card-text">{{text}}</p>

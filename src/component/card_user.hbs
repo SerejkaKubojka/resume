@@ -1,0 +1,37 @@
+
+        <div class="card" style="width: max-content;">
+            {{#if img}}
+                <img src="{{img}}" class="card-img-top" alt="{{alt}}">
+            {{/if}}
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{name}}   
+                </h5>
+                {{#if id}}
+                        <span class="badge text-bg-secondary"> {{id}}</span>
+                    {{/if}}
+                {{#if gender}}
+                    <span class="badge text-bg-primary"> {{gender}}</span>
+                {{/if}}
+                {{#if age}}
+                    <p class="card-text">{{age}} years old</p>
+                {{/if}}
+
+                {{#if friends}}
+                    {{#each friends}}
+                    <div class="col-sm-6 mb-3 mb-sm-3">
+                        {{> card_user name=name id=id gender=gender age=age friends=mutual_friends}}
+                    </div>
+                    {{/each}}
+                {{/if}}
+
+                {{#if groups}}
+                    {{#each groups}}
+                    <div class="col-sm-6 mb-3 mb-sm-3">
+                        {{> card_group title=name id=id gender=gender description=description members=members}}
+                    </div>
+                    {{/each}}
+                {{/if}}
+                
+            </div>
+        </div>
