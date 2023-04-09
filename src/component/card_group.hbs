@@ -1,0 +1,27 @@
+
+        <div class="card" style="width: 18rem;">
+            {{#if img}}
+                <img src="{{img}}" class="card-img-top" alt="{{alt}}">
+            {{/if}}
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{title}}
+                    {{#if id}}
+                        <span class="badge text-bg-secondary"> {{id}}</span>
+                    {{/if}} 
+                </h5>
+                
+                {{#if description}}
+                    <p class="card-text">{{description}}</p>
+                {{/if}}
+
+                {{#if members}}
+                    {{#each members}}
+                    <div class="col-sm-6 mb-3 mb-sm-3">
+                        {{> card_user name=name id=id gender=gender age=age}}
+                    </div>
+                    {{/each}}
+                {{/if}}
+                
+            </div>
+        </div>
