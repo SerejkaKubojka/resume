@@ -1,6 +1,11 @@
-<ul>
+<ul class="list-group">
+    {{#if active}}
+        <li class="list-group-item active" style="text-transform: capitalize;" aria-current="true">
+                <b>{{active}}</b>                        
+        </li>
+    {{/if}}
     {{#each arr}}
-        <li>
+        <li class="list-group-item">
             {{this}}                        
         </li>
     {{/each}}
