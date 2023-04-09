@@ -7,4 +7,7 @@
     {{else}}
         <p>- {{info}}</p>
     {{/unless}}
+    {{#if badge}}
+        {{> list_of_badge arr=badge}}
+    {{/if}}
 </div>
