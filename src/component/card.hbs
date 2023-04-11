@@ -16,6 +16,12 @@
                 {{#if text}}
                     <p class="card-text">{{text}}</p>
                 {{/if}}
-                <a href="#" class="btn btn-primary">Comming soon</a>
+                <a href="{{link}}" class="btn btn-primary">
+                    {{#if button}}
+                        {{button}}
+                    {{else}}
+                        Comming soon
+                    {{/if}}
+                </a>
             </div>
         </div>
