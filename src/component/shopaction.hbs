@@ -1,0 +1,16 @@
+
+<div class="pt-5 pb-5">
+{{#with action}}
+    <div class="card text-center">
+        
+        <div class="card-body text-bg-success p-2">
+            <h2 class="card-title">{{title}}</h2>
+            <p class="card-text">{{description}}</p>
+            {{#each buttons}}
+                <a href="{{link}}" class="btn btn-primary">{{text}}</a>
+            {{/each}}
+        </div>
+        
+    </div>
+{{/with}}
+</div>

@@ -1,0 +1,24 @@
+
+        <div class="card" style="">
+            {{#if img}}
+                <img src="{{img}}" class="card-img-top" alt="{{alt}}">
+            {{/if}}
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{title}}
+
+                    {{#if isHot}}
+                        <span class="badge text-bg-warning rounded-pill"> HOT! </span>
+                    {{/if}}
+                    {{#if isNew}}
+                        <span class="badge text-bg-primary rounded-pill"> New</span>
+                    {{/if}}
+                    
+                </h5>
+                {{#if text}}
+                    <p class="card-text">{{text}}</p>
+                {{/if}}
+
+                
+            </div>
+        </div>

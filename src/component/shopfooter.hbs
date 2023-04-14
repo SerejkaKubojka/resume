@@ -1,0 +1,14 @@
+<hr class="m-0">
+<div class="row">
+{{#each footer}}
+    <div class="col-2 p-0">
+        <ul class="nav flex-column">
+            {{#each this}}
+                    <li class="nav-item">
+                    <a href="{{link}}" class="nav-link {{#if @last}} disabled {{/if}}">{{text}}</a>
+                </li>
+            {{/each}}
+        </ul>                     
+    </div>
+{{/each}}
+</div>

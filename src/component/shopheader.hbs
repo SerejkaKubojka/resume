@@ -1,0 +1,19 @@
+{{#with navigation}}
+    <div class="row p-0 ">
+        {{#if Logo}}
+            <h1 class="col-4 m-0">{{Logo}}</h1>
+        {{/if}}
+        <div class="col-8 text-end pt-1 pe-0 ps-0">
+            <ul class="nav {{#if Logo}}justify-content-end{{/if}} nav-pills ">
+                {{#each links}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{href}}">{{text}}</a>
+                </li>
+                {{/each}}
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{{/with}}
