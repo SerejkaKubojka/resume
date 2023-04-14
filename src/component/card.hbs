@@ -1,5 +1,5 @@
 
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="">
             {{#if img}}
                 <img src="{{img}}" class="card-img-top" alt="{{alt}}">
             {{/if}}
@@ -12,6 +12,13 @@
                     {{#if id}}
                         <span class="badge text-bg-primary"> {{id}}</span>
                     {{/if}}
+                    {{#if warning}}
+                        <span class="badge text-bg-warning rounded-pill"> {{txt-warning}}</span>
+                    {{/if}}
+                    {{#if primary}}
+                        <span class="badge text-bg-primary rounded-pill"> {{txt-primary}}</span>
+                    {{/if}}
+                    
                 </h5>
                 {{#if text}}
                     <p class="card-text">{{text}}</p>
