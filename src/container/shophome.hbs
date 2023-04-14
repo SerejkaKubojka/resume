@@ -1,0 +1,138 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+        
+
+    <div class="m-1">
+        <hr >
+        {{#with navigation}}
+        <div class="row p-0 ">
+            <h1 class="col-4 m-0">{{Logo}}</h1>
+            <div class="col-8 text-end pt-1 pe-0 ps-0">
+                <ul class="nav justify-content-end nav-pills ">
+                    {{#each links}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{href}}">{{text}}</a>
+                    </li>
+                    {{/each}}
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {{/with}}
+        <hr class="mb-5">
+
+        <div class="row g-1 mb-5">
+            {{#with newsBlock}}
+                <h2 class="text-center mb-3 mt-3">{{title}}</h2>
+                    {{#each cards}}
+                    <div class="col-3 mb-2">
+                        <div class="card text-bg-dark" style="">
+                            <h5 class="card-header">
+                                {{title}}
+                                {{#if isNew}}
+                                    <span class="badge text-bg-success">NEW</span>
+                                {{/if}} 
+                                {{#if isTop}}
+                                    <span class="badge text-bg-danger">TOP</span>
+                                {{/if}}
+                            </h5>
+                            <div class="card-body">
+                                <p class="card-text">{{description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+            {{/with}}
+        </div>
+
+        <hr class="m-0">
+        <hr class="m-0">
+        
+        <div class="row g-1 mb-5 mt-5 justify-content-center">
+            {{#with goodsBlock}}
+                <ul class="nav nav-tabs">
+                    {{#each tabs}}
+                        <li class="nav-item">
+                            {{>link_b class='nav-link'isActive=isActive isDisabled=isDisabled text=text}}
+                        </li>
+                    {{/each}}
+                </ul>
+
+                <div class="row mt-5 p-0">
+                    {{#each cards}}
+                    <div class="col-4 mb-2">
+                        {{> card img=image alt=alt title=title text=description warning=isHot txt-warning='HOT!' primary=isNew txt-primary='New'}}
+                    </div>
+                    {{/each}}
+                </div>
+            {{/with}}
+        </div>
+
+        <hr class="m-0">
+        <hr class="m-0">
+
+        {{#with subscribe}}
+            <div class="card text-bg-dark  mt-5 mb-5" style="">
+                <div class="card-body p-2 pb-0">
+                    <h2 class="card-title">{{header}}</h2>
+                    <p class="card-text">{{description}}</p>
+                    {{#each buttons}}
+                        <div class="mb-2">
+                            <button class="btn btn-primary" href="{{link}}">{{text}}</button>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/with}}
+
+        <hr class="m-0">
+        <hr class="m-0">
+
+        {{#with service}}
+            <div class="card text-center mt-5 mb-5">
+                
+                <div class="card-body text-bg-success p-2">
+                    <h2 class="card-title">{{title}}</h2>
+                    <p class="card-text">{{description}}</p>
+                    {{#each buttons}}
+                        <a href="{{link}}" class="btn btn-primary">{{text}}</a>
+                    {{/each}}
+                </div>
+                
+            </div>
+        {{/with}}
+
+        <hr class="m-0">
+        <hr class="m-0">
+
+
+        <div class="row gy-4 mt-1 mb-5">
+            {{#each footer}}
+                <div class="col-2 p-0">
+                    <ul class="nav flex-column">
+                        {{#each this}}
+                             <li class="nav-item">
+                                <a href="{{link}}" class="nav-link {{#if isDisabled}} disabled {{/if}}">{{text}}</a>
+                            </li>
+                        {{/each}}
+                    </ul>                     
+                </div>
+            {{/each}}
+        </div>
+                    
+
+    </div>
+
+
+
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
