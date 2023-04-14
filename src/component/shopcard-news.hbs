@@ -1,0 +1,18 @@
+
+
+<div class="col-3 mb-2">
+    <div class="card text-bg-dark" style="">
+        <h5 class="card-header">
+            {{title}}
+            {{#if isNew}}
+                <span class="badge text-bg-success">NEW</span>
+            {{/if}} 
+            {{#if isTop}}
+                <span class="badge text-bg-danger">TOP</span>
+            {{/if}}
+        </h5>
+        <div class="card-body">
+            <p class="card-text">{{description}}</p>
+        </div>
+    </div>
+</div>
