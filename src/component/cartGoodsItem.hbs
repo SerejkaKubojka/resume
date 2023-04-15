@@ -1,0 +1,23 @@
+<div class="col-12 card">
+    <div class="row card-body align-items-center">
+        <img src="{{image}}" class="img-thumbnail col-2 p-0" alt="{{name}}">
+        <div class="col-4">
+            <h4 class="card-title">{{name}}</h4>
+            <p class="card-text">{{description}}</p>                                
+        </div>
+        <div class="col-2">
+            <div class="card-title">{{price.title}}</div>
+            <h5 class="card-text ">{{price.value}}</h5>                                
+        </div>
+        <div class="col-2">
+            <div class="card-title">{{amount}}</div>                              
+        </div>
+        <div class="col-2">
+            {{#each buttons}}
+                <div class="mb-3">
+                    {{> button_b name=text href=href isOutline=isOutline}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

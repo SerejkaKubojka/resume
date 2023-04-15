@@ -208,6 +208,45 @@
                         {{/with}}
                     </div>
                 </div>
+
+                <div class="col-4">
+                    <div class="card mb-3">
+                        {{#with action_block}}
+                            <div class="card-body p-2">
+                                {{#each this}}
+                                    <div class="mb-2">
+                                        {{> button_b name=text href=link }}
+                                    </div>
+                                {{/each}}
+                            </div>
+                        {{/with}}
+                    </div>
+                    <div class="card ">
+                        {{#with total}}                           
+                            <div class="card-body p-2 gy-2">
+                                <h3>{{title}}</h3>
+                                {{#each item_list}}
+                                    {{> inf title=name text=price}}
+                                {{/each}}
+                                <hr class="my-2">
+                                {{#each additional_info}}
+                                    {{> inf title=text text=value}}
+                                {{/each}}
+                                <hr class="my-2">
+                                {{#with total_price}}
+                                    {{> inf title=text text=value}}
+                                {{/with}}
+                                <hr class="my-2">
+                                {{#each button}}
+                                    <div class="mb-2">
+                                        {{> button_b name=text href=link }}
+                                    </div>
+                                {{/each}}
+                            </div>
+                        {{/with}}
+                    </div>
+
+                </div>
             </div>
         </div>
 

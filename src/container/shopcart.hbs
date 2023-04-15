@@ -1,0 +1,94 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+    <div class="col-12">
+        {{> shopheader navigation=navigation links=links}}
+    </div>  
+
+    
+
+    <div class="row m-1 gy-5">
+    
+        <div class="col-12">
+            {{#with header}}
+                <h1 class="mb-3">{{title}}</h1> 
+                {{> button_b name=button.text href=href isSecondary=true isOutline=true}}
+            {{/with}}
+            
+        </div>    
+        <hr class="col-12">
+        <div class="col-12 mb-5">
+            <div class="row gy-4">
+                {{#each goodsBlock}}
+                    {{> cartGoodsItem}}
+                {{/each}}
+                
+            </div>
+        </div>
+        <hr class="col-12">
+        <div class="col-12 mb-5">
+            {{#with total}}
+                <h4>{{title}}</h4>
+                <h2>{{amount}}</h2>
+                <p>{{delivery}}</p>
+                {{#each buttons}}
+                    <div class="mb-3">
+                        {{> button_b name=text href=link }}
+                    </div>
+                {{/each}}
+            {{/with}}
+        </div>
+
+        <hr class="col-12 m-0">
+
+        <div class="col-12">
+            <div class="row justify-content-center">
+                {{#with goodsOtherBlock}}
+                    <h3 class="text-center">{{title}}</h3>
+                    
+                    {{#each cards}}
+                    <div class="col-4">
+                        {{> shopcard img=image alt=title title=title isHot=isHot isNew=idNew text=description}}
+                    </div>
+                    {{/each}}
+
+                    
+                {{/with}}
+            </div>
+        </div>
+
+        <hr class="col-12 ">
+
+        <div class="col-12">
+            {{#with subscribe}}
+                <div class="card text-bg-dark" style="">
+                    <div class="card-body p-2 pb-0">
+                        <h2 class="card-title">{{header}}</h2>
+                        <p class="card-text">{{description}}</p>
+                        {{#each buttons}}
+                            <div class="mb-2">
+                                <button class="btn btn-primary" href="{{link}}">{{text}}</button>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/with}}
+        </div>
+
+        <div class="col-12">
+            {{> shopfooter footer=footer}}
+        </div>
+                    
+
+    </div>
+
+
+
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
