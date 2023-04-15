@@ -1,0 +1,225 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+    <div class="col-12">
+        {{> shopheader navigation=navigation links=links}}
+    </div>    
+
+    <div class="row m-1 gy-4">
+    
+        <div class="col-12">
+            <h1>{{header}}</h1>
+        </div>    
+
+        <div class="col-12 mb-5">
+            <div class="row">
+                
+                <div class="col-8">
+                
+                    <div class="row gy-3">
+                        {{#with contacts_data}}
+                            <h3>{{title}}</h3>
+                            <div class="col-12">
+                                {{#each buttons}}
+                                    {{> button_b isWarning=isWarning isOutline=isOutline name=text}}
+                                {{/each}}
+                            </div>
+                            {{#with form}}
+                                <form class="col-12">
+                                    <div class="row">
+                                        {{#with input}}
+                                            <div class="col-6">
+                                                {{#with surname}}
+                                                    {{> input-b label=label placeholder=placeholder caption=caption}}
+                                                {{/with}}
+                                            </div>
+                                            <div class="col-6">
+                                                {{#with name}}
+                                                    {{> input-b label=label placeholder=placeholder caption=caption}}
+                                                {{/with}}
+                                            </div>
+                                            <div class="col-6">
+                                                {{#with phone}}
+                                                    {{> input-b label=label placeholder=placeholder caption=caption}}
+                                                {{/with}}
+                                            </div>
+                                            <div class="col-6">
+                                                {{#with email}}
+                                                    {{> input-b label=label placeholder=placeholder caption=caption}}
+                                                {{/with}}
+                                            </div>
+                                        {{/with}}
+                                        
+                                    </div>
+                                </form>
+                                <hr class="m-0">
+                                <div class="col-12 my-3">
+                                {{#each switch}}
+                                    {{> switch-b label=text checked=isActive}}
+                                {{/each}}
+                                </div>
+                                <hr>
+                            {{/with}}
+                            
+
+                        {{/with}} 
+                        {{#with delivery}}
+                            <div class="col-12">
+                            <h3>{{title}}</h3>
+                                <form class="col-12 mb-3">
+                                    <div class="card col-12 mb-2">
+                                        <div class="row card-body p-2">
+                                            {{#each select}}
+                                                <div class="col-6">
+                                                    {{#with this}}
+                                                        {{> dropdown-b label=label placeholder=placeholder list=options}}
+                                                    {{/with}}
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                    {{#each delivery_type}}
+                                        {{> radio-b label=type name='delivery' checked=checked}}
+                                    {{/each}}
+                                </form>
+                            </div>
+                            <hr>  
+                            {{#with payment}}
+                                <div class="col-12">
+                                    <h3>{{title}}</h3>
+                                    <form class="col-12 mb-3">
+                                        {{#each list}}
+                                            {{> radio-b label=type name='payment' checked=checked}}
+                                        {{/each}}
+                                    </form>
+                                </div>
+                            {{/with}}
+                            <hr>  
+                            {{#with contact}}
+                                <div class="col-12">
+                                    <h3>{{title}}</h3>
+                                    <form class="col-12">
+                                        <div class="row">
+                                            
+                                            <div class="col-6">
+                                                {{#with surname}}
+                                                    {{> input-b label=label placeholder=placeholder caption=caption}}
+                                                {{/with}}
+                                            </div>
+                                            <div class="col-6">
+                                                {{#with name}}
+                                                    {{> input-b label=label placeholder=placeholder caption=caption}}
+                                                {{/with}}
+                                            </div>
+                                            <div class="col-6">
+                                                {{#with phone}}
+                                                    {{> input-b label=label placeholder=placeholder caption=caption}}
+                                                {{/with}}
+                                            </div>
+                                            <div class="col-6">
+                                                {{#with email}}
+                                                    {{> input-b label=label placeholder=placeholder caption=caption}}
+                                                {{/with}}
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            {{/with}} 
+                            <hr class="m-0">  
+                            {{#with coment}}
+                                <div class="col-12">
+                                    <form class="col-12 mb-3">
+                                        {{> input-b label=label placeholder=placeholder}}
+                                    </form>
+                                </div>
+                            {{/with}} 
+
+                        {{/with}}
+                        <hr class="m-0">
+                        {{#with coupon}}
+                            <div class="col-12">
+                                <h3>{{title}}</h3>
+                                <form class="col-12 mb-3">
+                                    {{#with select}}
+                                        <div class="mb-2">
+                                            {{#with availabel_coupon}}
+                                                {{> dropdown-b label=label lg=true placeholder=placeholder list=options}}
+                                            {{/with}}
+                                        </div>
+                                        <div class="mb-2">
+                                            {{#with friend_coupon}}
+                                                {{> dropdown-b label=label sm=true placeholder=placeholder list=options caption=caption}}
+                                            {{/with}}
+                                        </div>                                        
+                                    {{/with}}
+                                    {{#with add}}
+                                        <div class="mb-2">
+                                            {{#with friend}}
+                                                {{> input-b label=label lg=true placeholder=placeholder  caption=caption}}
+                                            {{/with}}
+                                        </div>
+                                        <div class="mb-2">
+                                            {{#with colleague}}
+                                                {{> input-b label=label sm=true placeholder=placeholder caption=caption}}
+                                            {{/with}}
+                                        </div>                                        
+                                    {{/with}}
+                                </form>
+                            </div>
+                        {{/with}}
+                        <hr>
+                        {{#with quiz}}
+                            <div class="col-12">
+                                <h3>{{title}}</h3>
+                                <form class="col-12 mb-3">
+                                    {{#with preference}}
+                                        <div class="mb-2">
+                                            <label for="{{for}}" class="form-label m-0">{{title}}</label>
+                                            {{#each options}}
+                                                {{> radio-b name='quiz-type-equriments' label=this }}
+                                            {{/each}}
+                                        </div>                                         
+                                    {{/with}}
+                                    <div class="mb-2">
+                                        {{#with your_expirience}}
+                                            {{> input-b label=label placeholder=placeholder  caption=caption}}
+                                        {{/with}}
+                                    </div> 
+                                    
+                                    <div class="mb-2">
+                                        {{#with purchase_frequency}}
+                                            {{> dropdown-b label=label placeholder=placeholder list=options caption=caption}}
+                                        {{/with}}
+                                    </div>  
+                                    {{#with factors}}
+                                        <div class="mb-2">
+                                            <label for="{{for}}" class="form-label m-0">{{title}}</label>
+                                            {{#each options}}
+                                                {{> checkbox-b name='quiz-type-equriments' label=this }}
+                                            {{/each}}
+                                        </div>                                       
+                                    {{/with}}
+                                </form>
+                            </div>
+                        {{/with}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{> shopfooter footer=footer}}
+                    
+
+    </div>
+
+
+
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}

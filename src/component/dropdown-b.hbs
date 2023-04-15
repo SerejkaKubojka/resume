@@ -1,0 +1,10 @@
+<label class="form-check-label " for="{{for}}">{{label}}</label>
+<select class="form-select {{#if lg}}form-select-lg{{/if}} {{#if sm}}form-select-sm{{/if}}" aria-label="Default select example" aria-placeholder="{{placeholder}}">
+  {{#with placeholder}}
+    <option selected value="{{0}}">{{this}}</option>
+  {{/with}}
+  {{#each list}}
+    <option {{#if selected}}selected{{/if}} value="{{value}}">{{text}}</option>
+  {{/each}}
+</select>
+<div id="{{id}}" class="form-text m-0 {{#if error}}text-bg-danger{{/if}}">{{caption}}{{description}}{{error}}</div>
