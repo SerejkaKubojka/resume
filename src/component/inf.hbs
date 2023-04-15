@@ -2,9 +2,9 @@
     {{#if h}}
         <h{{h}} style="text-transform: capitalize;">{{title}}</h{{h}}>
     {{else}}
-        <em style="text-transform: capitalize; {{#if bold}} font-size:20px; font-weight:bold; {{/if}}">
-        {{title}}:
-        </em>
+        <div style="text-transform: capitalize; {{#if bold}} font-size:20px; font-weight:bold; {{/if}}">
+        {{title}}: {{text}}
+        </div>
     {{/if}}
     {{#unless p}}
         {{info}} 
