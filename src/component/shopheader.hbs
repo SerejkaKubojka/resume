@@ -1,5 +1,6 @@
 {{#with navigation}}
-    <div class="row p-0 ">
+<div class="card">
+    <div class="row card-body">
         {{#if Logo}}
             <h1 class="col-4 m-0">{{Logo}}</h1>
         {{/if}}
@@ -7,13 +8,12 @@
             <ul class="nav {{#if Logo}}justify-content-end{{/if}} nav-pills ">
                 {{#each links}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{href}}">{{text}}</a>
+                    <a class="nav-link {{#unless href}} disabled{{/unless}}" href="{{href}}">{{text}}</a>
                 </li>
                 {{/each}}
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
+                
             </ul>
         </div>
     </div>
+</div>
 {{/with}}
