@@ -1,5 +1,5 @@
 <div class="mb-2">
-    <label for="{{for}}" class="form-label m-0">{{label}}</label>
+    {{#if label}}<label for="{{for}}" class="form-label m-0">{{label}}</label>{{/if}}
     <input type="email" class="form-control
     {{#if lg}}form-control-lg{{/if}} {{#if sm}}form-control-sm{{/if}}"
      id="{{id}}" placeholder="{{placeholder}}">

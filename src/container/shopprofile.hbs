@@ -1,0 +1,228 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+    
+
+    
+
+    <div class="row m-1 gy-3 gx-2">
+        <div class="col-12 mb-5">
+            {{> shopheader navigation=navigation links=links}}
+        </div>  
+    
+        <div class="col-12 mb-1">
+            {{#with header}}
+                <h1 class="mb-1">{{this}}</h1> 
+            {{/with}}
+            
+        </div>    
+        
+        {{#with purchase}}
+            <div class="col-12">
+                <ul class="nav nav-tabs">
+                    {{#each tabs}}
+                        <li class="nav-item">
+                            {{#if @first}}
+                                {{>link_b class='nav-link'isActive=true text=this b=true}}
+                            {{else}}
+                                {{>link_b class='nav-link'isActive=false text=this}}
+                            {{/if}}
+                            
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{#with actionBlock}}
+                <div class="col-4">
+                    {{> input-b placeholder=input.placeholder }}
+                </div>
+                <div class="col-8">
+                    {{#each buttons}}
+                        {{> button_b href=link name=text class='me-1'}}
+                    {{/each}}
+                </div>
+            {{/with}}
+            <hr class="col-12  border-dark opacity-100 ">
+            <div class="col-12">
+                {{#each itemList}}
+                    {{> purchaseItem}}
+                    
+                {{/each}}
+            </div>
+            <hr class="col-12  border-dark opacity-100 ">
+        {{/with}}
+
+        {{#with userInfo}}
+            <div class="col-12 my-5">
+                {{#with title}}
+                    <h1 class="mb-1">{{this}}</h1> 
+                {{/with}}
+            </div>
+
+            <div class="col-12 card">
+                {{#with profileData}}
+                    <div class="card-body">
+                        <h2 class="card-title mb-4">{{title}}</h2>
+                        <div class="col-12 card mb-3">
+                            {{#with fullName}}
+                                <div class="card-body row p-2">
+                                    <div class="col-4">
+                                        {{#with surname}}
+                                            <p class="card-text mb-2">{{title}}</p>
+                                            <b>{{value}}</b>
+                                        {{/with}}
+                                    </div>
+                                    <div class="col-4">
+                                        {{#with name}}
+                                            <p class="card-text mb-2">{{title}}</p>
+                                            <b>{{value}}</b>
+                                        {{/with}}
+                                    </div>
+                                    <div class="col-4">
+                                        {{#with middleName}}
+                                            <p class="card-text mb-2">{{title}}</p>
+                                            <b>{{value}}</b>
+                                        {{/with}}
+                                    </div>
+                                </div>
+                            {{/with}}
+                        </div>
+                        <div class="col-12 card mb-3">
+                            {{#with otherInfo}}
+                                <div class="card-body row p-2">
+                                    <div class="col-4">
+                                        {{#with birthday}}
+                                            <p class="card-text mb-2">{{title}}</p>
+                                            <b>{{value}}</b>
+                                        {{/with}}
+                                    </div>
+                                    <div class="col-4">
+                                        {{#with sex}}
+                                            <p class="card-text mb-2">{{title}}</p>
+                                            <b>{{value}}</b>
+                                        {{/with}}
+                                    </div>
+                                    <div class="col-4">
+                                        {{#with language}}
+                                            <p class="card-text mb-2">{{title}}</p>
+                                            <b>{{value}}</b>
+                                        {{/with}}
+                                    </div>
+                                </div>
+                            {{/with}}
+                        </div>
+                        <div class="col-12 card mb-3">
+                            {{#with ../../userInfo}}
+                                <div class="card-body row p-2">                                    
+                                    {{#each buttons}}
+                                        <div class="col-4">
+                                            {{> button_b name=text href=link}}
+                                        </div>
+                                    {{/each}}                                    
+                                </div>
+                            {{/with}}
+                        </div>
+                    </div>
+                {{/with}}
+            </div>
+
+            <div class="col-12 card">
+                {{#with recipients}}
+                    <div class="card-body row gy-2">
+                        <h2 class="card-title mb-4">{{title}}</h2>
+                        {{#each users}}
+                        <div class="col-4">
+                            <div class="card mb-3">
+                                <div class="card-body p-2">
+                                    <h6 class="card-title">{{name}}</h6>
+                                    <p class="card-text mb-2">{{phone}}</p>
+                                    {{#with button}}
+                                        <div class="col-4">
+                                            {{> button_b name=text href=link isPrimary=true}}
+                                        </div>
+                                    {{/with}}
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                {{/with}}
+            </div>
+            <div class="col-12 card">
+                {{#with contacts}}
+                    <div class="card-body row gy-2">
+                        <h2 class="card-title mb-4">{{title}}</h2>
+                        {{#with contactData}}
+                            <div class="col-4">
+                                {{#with phone}}
+                                    <div class="card mb-3">
+                                        <div class="card-body p-2">
+                                            <h6 class="card-title">{{title}}</h6>
+                                            <p class="card-text mb-2">{{value}}</p>
+                                            {{#with ../../buttons.[0]}}
+                                                <div class="col-4">
+                                                    {{> button_b name=text href=link isPrimary=true}}
+                                                </div>
+                                            {{/with}}
+                                        </div>
+                                    </div>
+                                {{/with}}
+                            </div>
+                            <div class="col-4">
+                                {{#with additionalPhone}}
+                                    <div class="card mb-3">
+                                        <div class="card-body p-2">
+                                            <h6 class="card-title">{{title}}</h6>
+                                            <p class="card-text mb-2">{{value}}</p>
+                                            {{#with ../../buttons.[1]}}
+                                                <div class="col-4">
+                                                    {{> button_b name=text href=link isPrimary=true}}
+                                                </div>
+                                            {{/with}}
+                                        </div>
+                                    </div>
+                                {{/with}}
+                            </div>
+                            <div class="col-4">
+                                {{#with email}}
+                                    <div class="card mb-3">
+                                        <div class="card-body p-2">
+                                            <h6 class="card-title">{{title}}</h6>
+                                            <p class="card-text mb-2">{{value}}</p>
+                                            {{#with ../../buttons.[2]}}
+                                                <div class="col-4">
+                                                    {{> button_b name=text href=link isPrimary=true}}
+                                                </div>
+                                            {{/with}}
+                                        </div>
+                                    </div>
+                                {{/with}}
+                            </div>
+                        {{/with}}
+                    </div>
+                {{/with}}
+            </div>
+            
+         {{/with}}   
+            
+        </div> 
+        
+        
+
+        <div class="col-12 mt-5">
+            {{> shopfooter footer=footer}}
+        </div>
+                    
+
+    </div>
+
+
+
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
