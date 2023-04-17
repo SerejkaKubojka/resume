@@ -1,0 +1,27 @@
+<div class=" mb-2">
+    <div class=" row align-items-center">
+        <div class="col-4">
+            <p class="mb-2">{{number}}</p>
+            <b>{{status}}</b>
+        </div>
+        <div class="col-2">
+            {{#with amount}}
+                <p class="mb-2">{{title}}</p>
+                <b class="m-0">{{value}}</b>
+            {{/with}}
+        </div>
+        <div class="col-4 row gx-1">
+            {{#each images}}
+                <img src="{{this}}" class="img-thumbnail col-4 p-0">
+            {{/each}}
+        </div>
+        <div class="col-2">
+            {{#with button}}
+                <div class="">
+                    {{> button_b name=text href=link }}
+                </div>
+            {{/with}}
+        </div>
+    </div>
+</div>
+<hr>
