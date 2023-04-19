@@ -1,0 +1,151 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+      
+
+    <div class="row m-1 gy-4">
+        <div class="col-12">
+            {{> shopheader navigation=navigation links=links}}
+        </div>  
+    
+         <div class="col-12">
+            {{> breadcrumb breadcrumb=breadcrumb}}
+        </div>
+        <div class="col-12">
+            <h1 class="m-0">{{header}}</h1>
+        </div>
+        {{#each sortBlock}}
+            <div class="col-3">
+                {{> dropdown-b list=options}}
+            </div>      
+        {{/each}}
+
+        <div class="col-12 my-5">
+            <div class="row">
+                {{#with filterBlock}}    
+                    <div class="col-4 card">
+                        <div class="row card-body p-2 gy-3">
+                            <div class="col-12 ">
+                                {{#with sellers}}
+                                    <p class="mb-2">{{title}}</p>
+                                    {{#each list}}
+                                        {{> checkbox-b label=value empty=true}}
+                                    {{/each}}
+                                {{/with}}
+                            </div>
+                            <div class="col-12">
+                                <hr class="m-0">
+                            </div>
+                            <div class="col-12 ">
+                                {{#with brands}}
+                                    <p class="mb-2">{{title}}</p>
+                                    {{> input-b placeholder=input.placeholder}}
+                                    {{#each options}}
+                                        {{> checkbox-b label=value empty=true}}
+                                    {{/each}}
+                                {{/with}}
+                            </div>
+                            <div class="col-12">
+                                <hr class="m-0">
+                            </div>
+                            <div class="col-12 ">
+                                {{#with price}}
+                                    <p class="mb-2">{{title}}</p>
+                                    {{> input-b placeholder=range.from}}
+                                    
+                                    {{> input-b placeholder=range.to}}
+                                    {{> button_b name=button.text href=button.link isSecondary=true isOutline=true}}
+                                {{/with}}
+                            </div>
+                            <div class="col-12">
+                                <hr class="m-0">
+                            </div>
+
+                            {{#each filterList}}
+                                <div class="col-12 ">
+                                    {{#with this}}
+                                        <p class="mb-2">{{title}}</p>
+                                        
+                                        {{#each options}}
+                                            {{> checkbox-b label=value empty=true}}
+                                        {{/each}}
+                                    {{/with}}
+                                </div>
+                                {{#unless @last}}
+                                    <div class="col-12">
+                                        <hr class="m-0">
+                                    </div>
+                                {{/unless}}
+                            {{/each}}
+
+                           
+                            
+                        </div>
+                    </div>
+                {{/with}}
+
+                
+                <div class="col-8">
+
+                    <div class="row">
+                        {{#each goodsList}}
+
+                            <div class="col-6">
+                                <div class="card mb-3" style="">
+                                    <img src="{{img}}" class="card-img-top" alt="{{name}}">
+                                    
+                                    <div class="card-body ">
+                                        <span class="badge bg-warning rounded-pill mb-3">HOT!</span>
+                                        <span class="badge bg-primary rounded-pill">Нове</span>
+                                        <br>
+                                        <span class="badge bg-success mb-1">Швидке замовлення</span>
+                                        <span class="badge bg-secondary mb-3">Безкоштовна доставка</span>
+                                        <h5 class="card-title mb-2">{{name}}</h5>
+                                        <p class="card-text mb-2">{{review.amount}} {{review.text}}</p>
+                                        <h4>{{price}}</h4>
+                                        <p class="mb-2">Готовий до выдправки</p>
+                                        {{#each buttons}}
+                                            <div class="mb-2">
+                                                {{> button_b name=text href=link}}
+                                            </div>
+                                        {{/each}}
+                                        <ul>
+                                            {{#each characteristics}}
+                                                <li>{{title}}: {{value}}</li>
+                                            {{/each}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {{/each}}
+                    </div>
+
+                </div>
+                
+
+                
+                <div class="col-12">
+                 {{> shopaction action=service}}
+                </div>
+                <div class="col-12">
+                 {{> shopfooter footer=footer}}
+                </div>
+            </div>
+        </div>
+
+        
+                    
+
+    </div>
+
+
+
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}

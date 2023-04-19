@@ -3,7 +3,7 @@
   {{#if checked}}
     checked
   {{else}}
-    {{#if @first}} checked=true {{/if}}
+    {{#if @first}} {{#unless empty}} checked=true {{/unless}} {{/if}}
   {{/if}}>
   <label class="form-check-label" for="flexRadioDefault1">
     {{label}}

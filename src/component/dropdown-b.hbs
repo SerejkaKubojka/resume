@@ -1,4 +1,4 @@
-<label class="form-check-label " for="{{for}}">{{label}}</label>
+{{#if label}}<label class="form-check-label " for="{{for}}">{{label}}</label>{{/if}}
 <select class="form-select {{#if lg}}form-select-lg{{/if}} {{#if sm}}form-select-sm{{/if}}" aria-label="Default select example" aria-placeholder="{{placeholder}}">
   {{#with placeholder}}
     <option selected value="{{0}}">{{this}}</option>
