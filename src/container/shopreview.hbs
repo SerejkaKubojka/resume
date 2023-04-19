@@ -1,0 +1,141 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+      
+
+    <div class="row m-1 gy-4">
+        <div class="col-12">
+            {{> shopheader navigation=navigation links=links}}
+        </div>  
+    
+          
+
+        <div class="col-12 my-5">
+            <div class="row">
+                {{#with formBlock}}    
+                    <div class="col-8">
+                        <div class="row gy-4">
+                            
+                            <div class="col-12">
+                                <h1>{{header}}</h1>
+                            </div>
+                            <div class="col-12">
+                                <p>{{rating.title}}: {{rating.value}}</p>
+                            </div>
+
+                            <div class="col-12">
+                                <ul class="nav nav-tabs nav-fill">
+                                    {{#each actionBlock.tabs}}
+                                        <li class="nav-item">
+                                            {{#if @last}}
+                                                {{>link_b class='nav-link'isActive=true text=text b=true}}
+                                            {{else}}
+                                                {{>link_b class='nav-link'isActive=false text=text}}
+                                            {{/if}}
+                                            
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </div> 
+                            <div class="col-12 mt-5">
+                                <hr class=" border-dark opacity-10 border-2 "> 
+                            </div>
+                            <div class="col-12">
+                                {{#with actionBlock.report}}
+                                    <div class="card">
+                                        <div class="card-body">
+                                            
+                                            <p class="card-text mb-2">{{title}}</p>
+                                            {{#with button}}
+                                                <div class="col-4">
+                                                    {{> button_b name=text href=link isSecondary=true}}
+                                                </div>
+                                            {{/with}}
+                                        </div>
+                                    </div>
+                                {{/with}}
+                            </div>
+
+                            <div class="col-12 mb-5">
+                                <hr class=" border-dark opacity-10 border-2 "> 
+                            </div>
+
+                            {{#with feedbackBlock}}
+                                <div class="col-12">
+                                    <h2>{{title}}</h2>
+                                </div>
+                                <div class="col-12">
+                                    {{#each buttons}}
+
+                                        {{> button_b name=text href=link class='me-2'}}
+
+                                    {{/each}}
+                                </div>
+                            {{/with}}
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        {{#with goodsInfo}}
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <img src="{{photo}}" alt="{{namme}}" class="mb-3">
+                                    <h5 class="m-0">{{name}}</h5>
+                                </div>
+                            </div>
+                            
+                            <div class="card  mb-3">                       
+                                <div class="card-body row gy-2">
+                                    <h5 class="m-0">{{price}}</h5>
+                                    <p class="m-0">{{#if inMarket}}Є в наявності{{else}}Немає в наявності{{/if}}</p>
+                                    {{#each buttons}}
+                                    <div>
+                                        {{> button_b name=text href=link class='me-2'}}
+                                    </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+
+                            <div class="card ">                       
+                                <div class="card-body gy-2">
+                                    <p class="m-0">{{seller.title}}: <b>{{seller.value}}</b></p>
+                                </div>
+                            </div>
+                        {{/with}}
+
+                    </div>
+                {{/with}}
+
+                <div class="col-12 mt-5">
+                    <hr class=" border-dark opacity-10 border-2 "> 
+                </div>
+                <div class="col-12">
+                {{#each reviewList}}
+                    {{> reviewItem}}
+                {{/each}}
+                </div>
+                <div class="col-12">
+                 {{> shopaction action=service}}
+                </div>
+                <div class="col-12">
+                 {{> shopfooter footer=footer}}
+                </div>
+            </div>
+        </div>
+
+        
+                    
+
+    </div>
+
+
+
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
