@@ -1,12 +1,12 @@
-<button class="btn 
+<{{#unless a}}button{{else}}a{{/unless}} class="btn 
     {{#if isWarning}}btn-{{#if isOutline}}outline-{{/if}}warning{{/if}}
     {{#if isDanger}}btn-{{#if isOutline}}outline-{{/if}}danger{{/if}}
     {{#if isSuccess}}btn-{{#if isOutline}}outline-{{/if}}success{{/if}}
     {{#if isPrimary}}btn-{{#if isOutline}}outline-{{/if}}primary{{/if}}
     {{#if isSecondary}}btn-{{#if isOutline}}outline-{{/if}}secondary{{/if}}
     {{#if isInfo}}btn-{{#if isOutline}}outline-{{/if}}info{{/if}}
-    {{#if class}}{{class}}{{/if}}" href=" {{href}}">
+    {{#if class}}{{class}}{{/if}}" href="{{href}}">
 
         {{name}}
 
-</button>
+</{{#unless a}}button{{else}}a{{/unless}}>

@@ -1,0 +1,41 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+      
+
+    <div class="row m-1 gy-4">
+        <div class="card">
+            <div class="row card-body">
+                <h2 class="col-6 m-0">{{name}} {{surname}}</h2>
+                <div class="col-6 text-end pt-1 pe-0 ps-0">
+                    <h2 class="nav justify-content-end">
+                        {{project_name}}
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="mt-5">{{title}}</h1>
+        <p class="mt-0">{{paragraph}}</p>
+        <div class="col-12">
+        {{#each pages}}
+            
+                {{>button_b name=text class='m-1 ms-0' a=true}}
+            
+        {{/each}}
+        </div>
+        
+                    
+
+    </div>
+
+
+
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}

@@ -36,13 +36,6 @@ var footer = {
 // router.get Створює нам один ентпоїнт
 
 //           ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
-  //                  ↑↑ сюди вводимо JSON дані
-})
 
 // ================================================================
 
@@ -3553,7 +3546,7 @@ router.get('/shopcatalog', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shopcatalog', {
-    // layout: 'shop',
+    layout: 'shop',
 
     page: {
       title: 'Resume | Shop catalog',
@@ -3929,6 +3922,118 @@ router.get('/shopcatalog', function (req, res) {
 })
 
 // ================================================================
+router.get('/', function (req, res) {
+  // res.render генерує нам HTML сторінку
 
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('index8', {
+    layout: 'index',
+
+    page: {
+      title: 'Resume | Main',
+    },
+
+    header,
+    footer,
+
+    name: 'Serhii',
+    surname: 'L',
+    project_name: 'Resume project',
+
+    title: 'Список сторінок',
+    paragraph:
+      'Це проект Резюме в якому показано вивід данних, створений розділ магазину в якому використовується бутстрап',
+
+    pages: [
+      {
+        text: 'Summary',
+        href: '/summary',
+        isSecondary: true,
+      },
+      { text: 'Sills', href: '/skills', isSecondary: true },
+      {
+        text: 'Education',
+        href: '/education',
+        isSecondary: true,
+      },
+      { text: 'Work', href: '/work', isSecondary: true },
+      {
+        text: 'Person',
+        href: '/person',
+        isInfo: true,
+      },
+      { text: 'BIO', href: '/bio', isInfo: true },
+      {
+        text: 'Program',
+        href: '/program',
+        isInfo: true,
+      },
+      { text: 'WEB', href: '/web', isInfo: true },
+      { text: 'JS', href: '/js', isPrimary: true },
+      { text: 'Car', href: '/car', isPrimary: true },
+      { text: 'Mac', href: '/mac', isPrimary: true },
+      {
+        text: 'Facebook',
+        href: '/facebook',
+        isSuccess: true,
+      },
+      {
+        text: 'Task21',
+        href: '/task21',
+        isSuccess: true,
+      },
+      {
+        text: 'Task22',
+        href: '/task22',
+        isSuccess: true,
+      },
+      {
+        text: 'Task31',
+        href: '/task31',
+        isSuccess: true,
+      },
+      {
+        text: 'Shop home',
+        href: '/shophome',
+        isWarning: true,
+      },
+      {
+        text: 'Shop product',
+        href: '/shopproduct',
+        isWarning: true,
+      },
+      {
+        text: 'Shop news',
+        href: '/shopnews',
+        isWarning: true,
+      },
+      {
+        text: 'Shop order',
+        href: '/shoporder',
+        isDanger: true,
+      },
+      {
+        text: 'Shop cart',
+        href: '/shopcart',
+        isDanger: true,
+      },
+      {
+        text: 'Shop profile',
+        href: '/shopprofile',
+        isDanger: true,
+      },
+      {
+        text: 'Shop review',
+        href: '/shopreview',
+        isDanger: true,
+      },
+      {
+        text: 'Shop catalog',
+        href: '/shopcatalog',
+        isDanger: true,
+      },
+    ],
+  })
+})
 // Підключаємо роутер до бек-енду
 module.exports = router
